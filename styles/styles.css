@@ -28,7 +28,7 @@ body {
   line-height: 21px;
   color: #000000;
   background-color: #FFFFFF;
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
@@ -72,17 +72,24 @@ body {
   fill: #756157;
 }
 
-.navigation-link:hover {
+.navigation-link:not(.navigation-link-current):hover {
   background-color: #615048;
 }
 
-.navigation-link:focus {
+.navigation-link:not(.navigation-link-current):focus {
   background-color: #615048;
 }
 
 .navigation-link:active {
   background-color: #756157;
   color: rgba(0, 0, 0, 0.3);
+}
+
+button:hover, button:focus {
+  outline: none;
+}
+button:disabled {
+  background: #E5E5E5;
 }
 
 .brown:hover {
@@ -130,14 +137,14 @@ body {
 
 .field:focus {
   background: #E6E6E6;
-  border: 3px solid #83B3D3;
-  height: 54px;
+  outline: 3px solid #83B3D3;
+  height: 15px;
 }
 
 .field:active {
   background: #FFFFFF;
-  border: 2px solid #000000;
-  height: 56px;
+  outline: 2px solid #000000;
+  height: 17px;
 }
 
 .social-button {
@@ -187,6 +194,7 @@ body {
 
 .button-select:focus {
   border: 2px solid #68A2CA;
+  outline: none;
 }
 
 .button-select:active {
@@ -263,6 +271,7 @@ body {
 
 .range-toggle:hover {
   background-color: #FFFFFF;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .range-toggle:active {
@@ -290,16 +299,17 @@ body {
   content: "";
 }
 
-.control-input:focus + .control-mark {
-  outline: 3px solid #83B3D3;
-}
-
 .control-input:hover + .control-mark {
   background: rgba(255, 255, 255, 0.6);
 }
 
-.control-input:active + .control-mark {
+.control-input:focus + .control-mark {
+  outline: 3px solid #83B3D3;
   background: rgba(255, 255, 255, 0.6);
+}
+
+.control-input:active + .control-mark {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .catalog-filter-label:hover {
@@ -376,6 +386,7 @@ body {
 .navigation-link-current::before {
   position: absolute;
   bottom: 0;
+  left: 0;
   height: 2px;
   width: calc(100% - 34px);
   content: "";
@@ -450,7 +461,7 @@ body {
 
 .filter {
   position: absolute;
-  background-image: url(../images/html/filter.svg);
+  background-image: url("../images/html/filter.svg");
   bottom: 0px;
   height: 57px;
   width: 1200px;
@@ -548,6 +559,7 @@ body {
   grid-template-columns: 400px 400px 400px;
   grid-column-start: 1;
   grid-column-end: -1;
+
 }
 
 .advantages-item {
@@ -558,6 +570,7 @@ body {
   justify-items: center;
   background: rgba(131, 179, 211, 0.12);
   box-sizing: border-box;
+  align-content: flex-start;
 }
 
 .midle-item {
@@ -565,21 +578,21 @@ body {
 }
 
 .first {
-  background-image: url(../images/html/logo-home.svg);
+  background-image: url("../images/html/logo-home.svg");
   background-repeat: no-repeat;
   background-size: 74px 70px;
   background-position: center 80px;
 }
 
 .second {
-  background-image: url(../images/html/logo-burger.svg);
+  background-image: url("../images/html/logo-burger.svg");
   background-repeat: no-repeat;
   background-size: 74px 70px;
   background-position: center 80px;
 }
 
 .third {
-  background-image: url(../images/html/logo-present.svg);
+  background-image: url("../images/html/logo-present.svg");
   background-repeat: no-repeat;
   background-size: 74px 70px;
   background-position: center 80px;
@@ -649,9 +662,10 @@ body {
 
 .found-form {
   background: #756157;
-  min-width: 574px;
-  min-height: 60px;
+  max-width: 574px;
+  min-height: 40px;
   margin-bottom: 93px;
+  padding: 10px 149px 10px 149px;
 }
 
 /* Подпишись на рассылку */
@@ -680,15 +694,15 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  align-items: flex-start;
 }
 
 .field {
-  width: 580px;
+  width: 560px;
   background: #F2F2F2;
   border-radius: 10px 0px 0px 10px;
   border: none;
-  padding: 0;
-  padding-left: 20px;
+  padding: 20px 20px 19px 20px;
   font-family: "PT Sans";
   font-style: normal;
   font-weight: 400;
@@ -707,9 +721,8 @@ body {
   background: #82B3D3;
   border-radius: 0px 10px 10px 0px;
   border: none;
-  width: 200px;
-  height: 60px;
-  padding: 20px;
+  width: 180px;
+  padding: 12px 20px 12px 20px;
 }
 
 
@@ -797,7 +810,7 @@ body {
   margin-bottom: 30px;
   list-style-type: none;
   min-width: 111px;
-  background-image: url(../images/catalog/vector-bread.svg);
+  background-image: url("../images/catalog/vector-bread.svg");
   background-repeat: no-repeat;
   background-size: 9px 9px;
   background-position: center left 22px;
@@ -911,7 +924,7 @@ body {
   width: 12px;
   height: 10px;
   content: "";
-  background-image: url(../images/catalog/check-Vector.svg);
+  background-image: url("../images/catalog/check-Vector.svg");
   background-repeat: no-repeat;
 }
 
@@ -1052,7 +1065,7 @@ body {
   margin: 0;
   margin-right: 70px;
   background-color: transparent;
-  background-image: url(../images/catalog/vector-select.svg);
+  background-image: url("../images/catalog/vector-select.svg");
   background-repeat: no-repeat;
   background-position: right 17px center;
   border: 2px solid #e5e5e5;
@@ -1061,10 +1074,12 @@ body {
 }
 
 .select-control-choice {
+  display: flex;
+  flex-wrap: wrap;
   width: 160px;
   text-align: center;
   display: inherit;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0px;
 }
 
@@ -1074,6 +1089,12 @@ body {
   border: 2px solid #E5E5E5;
   border-radius: 4px;
 }
+.select-active {
+  border: 2px solid #000000;
+  border-radius: 4px;
+}
+
+
 
 .button-select:last-child {
   margin-right: 0px;
@@ -1181,7 +1202,7 @@ body {
 
 .place-rating-star {
   margin: 0;
-  background-image: url(../images/catalog/logo-star.svg);
+  background-image: url("../images/catalog/logo-star.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 18px;
@@ -1205,9 +1226,10 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  width: 600px;
+  max-width: 600px;
 }
 
 .pagination-item {
@@ -1299,7 +1321,7 @@ body {
   background-color: #F2F2F2;
   border: none;
   border-radius: 50%;
-  background-image: url(../images/close-button.svg);
+  background-image: url("../images/close-button.svg");
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
@@ -1379,7 +1401,7 @@ body {
 }
 
 .field-date {
-  background-image: url(../images/html/calendar.svg);
+  background-image: url("../images/html/calendar.svg");
   background-repeat: no-repeat;
   background-position: right 17px center;
   z-index: 2;
@@ -1456,7 +1478,7 @@ input[type=number]::-webkit-inner-spin-button {
   padding: 0;
   display: block;
   border: none;
-  background-image: url(../images/html/minus.svg);
+  background-image: url("../images/html/minus.svg");
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
@@ -1471,7 +1493,7 @@ input[type=number]::-webkit-inner-spin-button {
   padding: 0;
   display: block;
   border: none;
-  background-image: url(../images/html/plus.svg);
+  background-image: url("../images/html/plus.svg");
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.3;
@@ -1527,7 +1549,7 @@ input[type=number]::-webkit-inner-spin-button {
 
 .tooltip-text:after {
   content: "";
-  background-image: url(../images/html/tooltip.svg);
+  background-image: url("../images/html/tooltip.svg");
   width: 19px;
   height: 9px;
   position: absolute;
@@ -1556,6 +1578,7 @@ input[type=number]::-webkit-inner-spin-button {
 .modal-close-button:active {
   background-color: #e6e6e6;
   border: none;
+  opacity: 0.3;
 }
 
 .modal-close-button:active::before,
@@ -1568,7 +1591,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .auth-form-field:focus {
-  background: #e6e6e6;
+  background-color: #e6e6e6;
   outline: 3px solid #83b3d3;
 }
 
